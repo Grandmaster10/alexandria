@@ -11,6 +11,14 @@ export class BooksController {
     return this.booksService.createBook(createBookDto);
   }
 
+  @Post('search/text')
+  async searchByText(@Body() body: { query: string }) {
+    if (!body.query) {
+      return { message: "Query text is required." };
+    }
+    return this.booksService.searchByText(body.query);
+  }
+
   @Get()
   findAll() {
     return this.booksService.findAll();

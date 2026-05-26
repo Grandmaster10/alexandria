@@ -4,6 +4,7 @@ import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { CreateBookDto } from './dto/create-book.dto';
 import { Book } from '@prisma/client';
+import axios from 'axios';
 
 @Injectable()
 export class BooksService {
@@ -55,9 +56,39 @@ export class BooksService {
     return recommendations;
   }
 
+  async searchByText(query: string) {
+    try {
+      const mlResponse = await axios.post('http://localhost:8000/embed', {
+        text: query
+      });
+
+      const embedding = mlResponse.data;
+      const vectorString = `[${embedding.join(',')}]`;
+
+      const recommendations = await this.prisma.$queryRaw`
+        SELECT 
+          id, 
+          title, 
+          author,
+          type, 
+          description, 
+          (1 - (embedding <=> ${vectorString}::vector))::float AS similarity
+        FROM "Book"
+        ORDER BY embedding <=> ${vectorString}::vector
+        LIMIT 5;
+      `;
+
+      return recommendations;
+
+    } catch (error) {
+      console.error('Text Search Error:', error);
+      throw new Error('Failed to process semantic search.');
+    }
+  }
+
   async findAll() {
     return this.prisma.book.findMany({
-      select: { id: true, title: true, author: true, type: true }
+      select: { id: true, title: true, author: true, type: true, description: true }
     });
   }
 }
