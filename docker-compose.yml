@@ -1,18 +1,28 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: pgvector/pgvector:pg15
-
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password123
-      POSTGRES_DB: alexandria
+  fastapi-engine:
+    build: ./ml-service
+    container_name: alexandria-fastapi
+    command: ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
     ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+      - "8000:8000"
 
+  backend-api:
+    build: ./backend
+    container_name: alexandria-nestjs
+    env_file: .env
 
-volumes:
-  pgdata:
+    ports:
+      - "3001:3001"
+    depends_on:
+      - fastapi-engine
+  frontend-ui:
+    build: ./ml-service
+    container_name: alexandria-streamlit
+    command: ["streamlit", "run", "app.py", "--server.address", "0.0.0.0", "--server.port", "8501"]
+
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend-api

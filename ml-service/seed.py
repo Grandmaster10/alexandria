@@ -3,7 +3,7 @@ import json
 import requests
 import time
 
-NESTJS_URL = "http://localhost:3001/books"
+NESTJS_URL = "http://backend-api:3001/books"
 
 def seed_database():
     print("Downloading dataset")

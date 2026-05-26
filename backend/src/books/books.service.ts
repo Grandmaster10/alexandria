@@ -18,7 +18,7 @@ export class BooksService {
 
     try {
       const pythonResponse = await firstValueFrom(
-        this.httpService.post('http://localhost:8000/embed', { text: description })
+        this.httpService.post('http://fastapi-engine:8000/embed', { text: description })
       );
       const embeddingVector = pythonResponse.data; 
 
@@ -58,7 +58,7 @@ export class BooksService {
 
   async searchByText(query: string) {
     try {
-      const mlResponse = await axios.post('http://localhost:8000/embed', {
+      const mlResponse = await axios.post('http://fastapi-engine:8000/embed', {
         text: query
       });
 

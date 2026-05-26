@@ -7,11 +7,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
-  app.enableCors({
-    origin: 'http://localhost:3000', 
-    methods: 'GET,POST',
-    credentials: true,
-  });
+  app.enableCors();
 
   await app.listen(3001);
 }

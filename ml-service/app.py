@@ -57,7 +57,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-API_URL = "http://localhost:3001"
+API_URL = "http://backend-api:3001"
 
 st.title("Alexandria")
 st.markdown("*An AI-Powered catalogue that reads your mood and recommends you books.*")
