@@ -17,8 +17,11 @@ export class BooksService {
     const { title, author, type, description } = createBookDto;
 
     try {
+      // Concatenated all the info about a book instead of just using plain old description since, usually a reader would like to be recommended a book which is similar to the writing style of the author they liked while also being of a similar genre, so by encoding the author along with the description it effectly gives better recommendations for a user.
+      const enrichedText = `Title: ${title}. Author: ${author}. Genre: ${type}. Summary: ${description}`; 
+
       const pythonResponse = await firstValueFrom(
-        this.httpService.post('http://fastapi-engine:8000/embed', { text: description })
+        this.httpService.post('http://fastapi-engine:8000/embed', { text: enrichedText })
       );
       const embeddingVector = pythonResponse.data; 
 
@@ -46,11 +49,11 @@ export class BooksService {
   async getRecommendations(bookId: string, limit: number = 5) {
     const recommendations = await this.prisma.$queryRaw`
       SELECT 
-        id, title, author, description,
-        1 - (embedding <-> (SELECT embedding FROM "Book" WHERE id = ${bookId})) as similarity_score
+        id, title, author, type, description,
+        (1 - (embedding <=> (SELECT embedding FROM "Book" WHERE id = ${bookId})))::float as similarity_score
       FROM "Book"
       WHERE id != ${bookId}
-      ORDER BY embedding <-> (SELECT embedding FROM "Book" WHERE id = ${bookId})
+      ORDER BY embedding <=> (SELECT embedding FROM "Book" WHERE id = ${bookId})
       LIMIT ${limit};
     `;
     return recommendations;
@@ -75,7 +78,7 @@ export class BooksService {
           (1 - (embedding <=> ${vectorString}::vector))::float AS similarity
         FROM "Book"
         ORDER BY embedding <=> ${vectorString}::vector
-        LIMIT 5;
+        LIMIT 10;
       `;
 
       return recommendations;

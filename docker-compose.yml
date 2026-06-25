@@ -26,3 +26,19 @@ services:
       - "8501:8501"
     depends_on:
       - backend-api
+  seeder:
+    build: ./ml-service
+    container_name: alexandria-seeder
+    command: ["python", "seed.py"]
+
+    profiles: ["tools"]
+    depends_on:
+      - backend-api
+  evaluator:
+    build: ./ml-service
+    container_name: alexandria-evaluator
+    command: ["python", "evaluate.py"]
+    
+    profiles: ["tools"]
+    depends_on:
+      - backend-api

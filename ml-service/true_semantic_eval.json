@@ -1,0 +1,252 @@
+[
+  {
+    "query": "A memoir about a student's journey studying philosophy in England and the US, talking about famous thinkers like Sartre and Chomsky.",
+    "expected_book_id": "The Making of a Philosopher",
+    "category": "Philosophy"
+  },
+  {
+    "query": "A historical account of the Soviet army invading the German capital at the very end of World War II.",
+    "expected_book_id": "The Fall of Berlin, 1945",
+    "category": "History"
+  },
+  {
+    "query": "A book exploring how the author of Alice in Wonderland also had a passion for taking early Victorian photographs.",
+    "expected_book_id": "Dreaming in Pictures",
+    "category": "Photography"
+  },
+  {
+    "query": "A forensic thriller where a female medical examiner moves to Florida and gets caught up in a series of interconnected cold cases.",
+    "expected_book_id": "Blow Fly",
+    "category": "Fiction"
+  },
+  {
+    "query": "A Christian book about how three historical figures kept their faith and found joy even during immense suffering.",
+    "expected_book_id": "The Hidden Smile of God",
+    "category": "Religion"
+  },
+  {
+    "query": "A biography of a famous medieval Dominican friar and theologian, written by a well-known Catholic apologist.",
+    "expected_book_id": "Saint Thomas of Aquinas",
+    "category": "Religion"
+  },
+  {
+    "query": "The second book in a famous fantasy trilogy where the fellowship splits up and two hobbits try to sneak into a dark land alone.",
+    "expected_book_id": "The Two Towers",
+    "category": "Fiction"
+  },
+  {
+    "query": "A comprehensive reference guide covering all the albums, songs, and history of the most famous rock band from Liverpool.",
+    "expected_book_id": "The Rough Guide to the Beatles",
+    "category": "Biography & Autobiography"
+  },
+  {
+    "query": "A coming-of-age story about a young girl in New York during the 1930s who turns to Orthodox Judaism despite her parents' communist beliefs.",
+    "expected_book_id": "Davita's Harp",
+    "category": "Fiction"
+  },
+  {
+    "query": "A biography for kids about the first African American president of the United States.",
+    "expected_book_id": "Barack Obama",
+    "category": "Juvenile Nonfiction"
+  },
+  {
+    "query": "A classic children's book series about two young girls who become best friends and grow up together in a small Midwestern town.",
+    "expected_book_id": "Betsy-Tacy",
+    "category": "Juvenile Fiction"
+  },
+  {
+    "query": "A raw, personal memoir from a soldier describing his horrific experiences as a foot soldier fighting in the Vietnam War.",
+    "expected_book_id": "If I Die in a Combat Zone",
+    "category": "Vietnam War, 1961-1975"
+  },
+  {
+    "query": "A science fiction novel about a man wrongly convicted and sent to a brutal high-tech prison planet, where he must escape through dangerous swamps.",
+    "expected_book_id": "The Omega Cage",
+    "category": "Fiction"
+  },
+  {
+    "query": "A graphic novel set in a famous sci-fi universe where an Imperial officer finds out his childhood friend is fighting for the Rebellion.",
+    "expected_book_id": "Star Wars: Empire Volume 7--The Wrong Side of the War",
+    "category": "Comics & Graphic Novels"
+  },
+  {
+    "query": "A romance novel about a rugged ship captain and a woman from the city falling in love while sailing on an old schooner.",
+    "expected_book_id": "Love Overboard",
+    "category": "Fiction"
+  },
+  {
+    "query": "A collection of the most important essays and treatises from Western philosophers spanning from ancient Greece to modern times.",
+    "expected_book_id": "Ten Great Works of Philosophy",
+    "category": "Fiction"
+  },
+  {
+    "query": "The famous historical travelogue of a Venetian merchant describing his adventures traveling the Silk Road to China.",
+    "expected_book_id": "The Travels of Marco Polo",
+    "category": "Biography & Autobiography"
+  },
+  {
+    "query": "A quirky children's fable about a seaside village plagued by little orange creatures that latch onto goats.",
+    "expected_book_id": "The Very Persistent Gappers of Frip",
+    "category": "Juvenile Fiction"
+  },
+  {
+    "query": "A classic Italian novel about a young nobleman whose romantic adventures and military career in Napoleon's army end in tragedy.",
+    "expected_book_id": "The Charterhouse of Parma",
+    "category": "Fiction"
+  },
+  {
+    "query": "A classic American book about a man who spends two years living simply in a cabin he built near a pond in Massachusetts.",
+    "expected_book_id": "Walden ; And, Resistance to Civil Government",
+    "category": "Literary Collections"
+  },
+  {
+    "query": "A popular science book about a famous fossil site in Canada that revealed strange ancient sea creatures from the Cambrian explosion.",
+    "expected_book_id": "Wonderful Life: The Burgess Shale and the Nature of History",
+    "category": "Fiction"
+  },
+  {
+    "query": "A nonfiction account of the devastating yellow fever epidemic that hit Philadelphia in 1793.",
+    "expected_book_id": "An American Plague",
+    "category": "Juvenile Nonfiction"
+  },
+  {
+    "query": "A classic novel that exposed the disgusting and dangerous working conditions of the meatpacking industry in early 20th-century Chicago.",
+    "expected_book_id": "The Jungle",
+    "category": "Fiction"
+  },
+  {
+    "query": "A book combining Tibetan Buddhist principles with career advice to help people find satisfaction and meaning in their daily jobs.",
+    "expected_book_id": "The Art of Happiness at Work",
+    "category": "Buddhism"
+  },
+  {
+    "query": "A sweeping historical fiction novel told from the perspective of the famous final Queen of Egypt, covering her romances with Roman leaders.",
+    "expected_book_id": "The Memoirs of Cleopatra",
+    "category": "Egypt"
+  },
+  {
+    "query": "A dark comedy novella where a reporter intentionally causes near-death experiences to interview famous dead people in the afterlife.",
+    "expected_book_id": "God Bless You, Dr. Kevorkian",
+    "category": "Fiction"
+  },
+  {
+    "query": "An investigative journalism book detailing how the government and medical establishment ignored the early outbreak of the AIDS epidemic.",
+    "expected_book_id": "And The Band Played on",
+    "category": "Health & Fitness"
+  },
+  {
+    "query": "A popular science book explaining complex physics concepts like black holes, time, and the origins of the universe to everyday readers.",
+    "expected_book_id": "Stephen Hawking's A Brief History of Time",
+    "category": "Nature"
+  },
+  {
+    "query": "An art book filled with concept sketches, illustrations, and designs from the production of a massive fantasy film trilogy.",
+    "expected_book_id": "The Lord of the Rings Sketchbook",
+    "category": "Art"
+  },
+  {
+    "query": "An action thriller about mercenaries plotting to sabotage the Alaskan oil pipeline, involving Russian assassins and global politics.",
+    "expected_book_id": "Charon's Landing",
+    "category": "Fiction"
+  },
+  {
+    "query": "A vampire novel centered around an ancient Roman vampire who spends centuries protecting two powerful, dormant supernatural beings.",
+    "expected_book_id": "Blood and Gold",
+    "category": "Fiction"
+  },
+  {
+    "query": "The epic conclusion to a legendary sci-fi series about a desert planet, resolving the final conflict between humans and thinking machines.",
+    "expected_book_id": "Sandworms of Dune",
+    "category": "Fiction"
+  },
+  {
+    "query": "A fantasy novel by a famous horror author about a dark wizard who frames a prince for the murder of the king in a medieval realm.",
+    "expected_book_id": "The Eyes of the Dragon",
+    "category": "Fiction"
+  },
+  {
+    "query": "A nonfiction book about how the Oakland Athletics used statistics and data analytics to build a competitive baseball team on a tiny budget.",
+    "expected_book_id": "Moneyball: The Art of Winning an Unfair Game",
+    "category": "Business & Economics"
+  },
+  {
+    "query": "A memoir about a female professor holding secret book club meetings to discuss banned Western literature in Iran.",
+    "expected_book_id": "Reading Lolita in Tehran",
+    "category": "Biography & Autobiography"
+  },
+  {
+    "query": "A famously difficult modernist novel that chronicles a single day in the life of a man walking around Dublin.",
+    "expected_book_id": "Ulysses",
+    "category": "Fiction"
+  },
+  {
+    "query": "A spiritual fiction book about the search for an ancient manuscript in Peru containing nine profound insights into human life.",
+    "expected_book_id": "The Celestine Prophecy",
+    "category": "Manuscripts"
+  },
+  {
+    "query": "A business and leadership book focusing on how building strong, reliable relationships is the most important factor in corporate success.",
+    "expected_book_id": "The SPEED of Trust",
+    "category": "Business & Economics"
+  },
+  {
+    "query": "A deep dive by a famous investigative journalist into how the Watergate scandal permanently changed the American presidency.",
+    "expected_book_id": "Shadow",
+    "category": "History"
+  },
+  {
+    "query": "A nihilistic novel following the empty, drug-fueled lives of wealthy teenagers partying in 1980s Los Angeles.",
+    "expected_book_id": "Less Than Zero",
+    "category": "Fiction"
+  },
+  {
+    "query": "A collection of prequel short stories detailing the origins of a famous child prodigy who saves Earth from alien invaders.",
+    "expected_book_id": "First Meetings",
+    "category": "Young Adult Fiction"
+  },
+  {
+    "query": "A hilarious travelogue about a guy traveling across Ireland and visiting pubs to connect with his family roots.",
+    "expected_book_id": "McCarthy's Bar",
+    "category": "Travel"
+  },
+  {
+    "query": "A heartfelt memoir about a woman spending a year riding public transit with her mentally disabled sister.",
+    "expected_book_id": "Riding the Bus with My Sister",
+    "category": "Biography & Autobiography"
+  },
+  {
+    "query": "A fun guidebook combining classic cocktail recipes with stories about the drinking habits of famous American writers.",
+    "expected_book_id": "Hemingway and Bailey's Bartending Guide to Great American Writers",
+    "category": "Cooking"
+  },
+  {
+    "query": "A children's mystery book where young kids uncover hidden clues and a secret chamber inside a large, spooky house.",
+    "expected_book_id": "The Mystery of the Secret Room",
+    "category": "Children's stories"
+  },
+  {
+    "query": "A young adult sports novel about a phenomenally talented young baseball pitcher whose age is questioned by rival teams.",
+    "expected_book_id": "Heat",
+    "category": "Juvenile Fiction"
+  },
+  {
+    "query": "A science fiction thriller about shadowy organizations using brain implants to control a US presidential candidate.",
+    "expected_book_id": "Interface",
+    "category": "Fiction"
+  },
+  {
+    "query": "A satirical collection of essays taking the perspective of Satan to mock humanity and religion, published long after the author's death.",
+    "expected_book_id": "Letters from the Earth",
+    "category": "Literary Criticism"
+  },
+  {
+    "query": "A paranormal book claiming that UFOs and aliens are actually hiding in bases deep within Earth's oceans.",
+    "expected_book_id": "Invisible Residents",
+    "category": "Body, Mind & Spirit"
+  },
+  {
+    "query": "A horror novel about a guy renovating a decrepit old house who starts uncovering terrifying supernatural secrets inside the walls.",
+    "expected_book_id": "Homebody",
+    "category": "Fiction"
+  }
+]

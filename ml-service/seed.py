@@ -2,52 +2,80 @@ from datasets import load_dataset
 import json
 import requests
 import time
+import random
 
-NESTJS_URL = "http://backend-api:3001/books"
+NESTJS_URL      = "http://backend-api:3001/books"
+RANDOM_STATE    = 42
+MIN_DESC_LENGTH = 50
 
-def seed_database():
-    print("Downloading dataset")
-    dataset = load_dataset("svastikkka/BOOK-RECOMMENDER-DATASET", data_files="data/books_with_emotions.csv", split="train")
-    
-    success_count = 0
+def load_dataset_rows():
+    """Load the full dataset, deduplicate, and return all valid rows."""
+    print("Downloading dataset from HuggingFace...")
+    dataset = load_dataset(
+        "svastikkka/BOOK-RECOMMENDER-DATASET",
+        data_files="data/books_with_emotions.csv",
+        split="train"
+    )
+
+    valid_rows = []
+    seen_titles = set()
     
     for row in dataset:
-        title = row.get('title')
-        author = row.get('authors')
-        description = row.get('description')
-        book_type = row.get('categories')
+        title = str(row.get('title', '')).strip().lower()
+        desc = str(row.get('description', ''))
+        if len(desc) >= MIN_DESC_LENGTH and title not in seen_titles:
+            seen_titles.add(title)
+            valid_rows.append(row)
 
-        if len(str(description)) < 50: 
-            continue
+    random.seed(RANDOM_STATE)
+    random.shuffle(valid_rows)
 
-        if not author: 
-            author = "Unknown Author"
-        if not book_type:
-            book_type = "Fiction"
+    print(f"Valid rows: {len(valid_rows)} books (deduplicated, min {MIN_DESC_LENGTH} char desc)")
+    return valid_rows
+
+
+def seed_database(rows: list):
+    """POST every book to the NestJS API."""
+    total = len(rows)
+    print(f"\nSeeding database with {total} books...\n")
+    success_count = 0
+    skip_count    = 0
+
+    for row in rows:
+        title       = str(row.get('title', '')).strip()
+        author      = str(row.get('authors', '') or 'Unknown Author').strip()
+        description = str(row.get('description', '')).strip()
+        book_type   = str(row.get('categories', '') or 'Fiction').strip()
+
+        if not author:   author    = 'Unknown Author'
+        if not book_type: book_type = 'Fiction'
 
         payload = {
-            "title": str(title),
-            "author": str(author),
-            "type": book_type,
-            "description": description
+            "title":       title,
+            "author":      author,
+            "type":        book_type,
+            "description": description,
         }
-            
+
         try:
-            res = requests.post(NESTJS_URL, json=payload)
-            
+            res = requests.post(NESTJS_URL, json=payload, timeout=30)
             if res.status_code == 201:
                 success_count += 1
-                print(f"Added [{success_count}]: {title} ({book_type})")
+                pct = success_count / total * 100
+                print(f"  [{success_count:>4}/{total}  {pct:4.1f}%] ✓ {title[:60]}")
             else:
-                print(f"Failed to add {title}: {res.text}")
+                skip_count += 1
+                print(f"  [SKIP] {title[:50]}: {res.text[:60]}")
         except Exception as e:
-            print(f"Server error on {title}: {e}")
+            skip_count += 1
+            print(f"  [ERR]  {title[:50]}: {e}")
 
-        time.sleep(0.1) 
+        time.sleep(0.05)
 
-        if success_count >= 1500:
-            print("Seeding successful")
-            break
+    print(f"Seeding complete")
+    print(f"Added  : {success_count}")
+    print(f"Skipped: {skip_count}")
 
 if __name__ == "__main__":
-    seed_database()
+    rows = load_dataset_rows()
+    seed_database(rows)
